@@ -4,7 +4,7 @@ import { WEDDING } from '../../wedding.config';
 import { longDate } from '../../shared/format';
 import { RevealDirective } from '../../shared/reveal.directive';
 
-type Status = 'idle' | 'sending' | 'sent' | 'error';
+type Status = 'idle' | 'sending' | 'sent' | 'manual' | 'error';
 
 @Component({
   selector: 'app-rsvp',
@@ -18,6 +18,11 @@ export class Rsvp {
   protected readonly deadline = longDate(WEDDING.rsvpDeadline);
   protected readonly guestOptions = Array.from({ length: WEDDING.rsvp.maxGuests }, (_, i) => i + 1);
   protected readonly status = signal<Status>('idle');
+  protected readonly email = WEDDING.rsvp.email;
+  /** Texto de la respuesta, para enviarla a mano cuando no hay servicio configurado. */
+  protected readonly summary = signal('');
+  protected readonly mailto = signal('');
+  protected readonly copied = signal(false);
 
   protected readonly form = this.fb.nonNullable.group({
     name: ['', [Validators.required, Validators.minLength(3)]],
@@ -61,8 +66,11 @@ export class Rsvp {
         .map(([k, v]) => `${k}: ${v}`)
         .join('\n');
       const subject = `RSVP boda – ${data.name}`;
-      window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      this.status.set('sent');
+      this.summary.set(body);
+      this.mailto.set(
+        `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`,
+      );
+      this.status.set('manual');
       return;
     }
 
@@ -79,7 +87,17 @@ export class Rsvp {
     }
   }
 
+  async copy(): Promise<void> {
+    try {
+      await navigator.clipboard.writeText(this.summary());
+      this.copied.set(true);
+    } catch {
+      this.copied.set(false);
+    }
+  }
+
   reset(): void {
+    this.copied.set(false);
     this.form.reset();
     this.status.set('idle');
   }

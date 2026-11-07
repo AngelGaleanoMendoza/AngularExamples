@@ -14,6 +14,19 @@
           </p>
           <button type="button" class="btn btn--outline" (click)="reset()">Enviar otra respuesta</button>
         </div>
+      } @else if (status() === 'manual') {
+        <div class="done" role="status">
+          <h3>¡Casi listo!</h3>
+          <p>Envíanos tu respuesta por correo a <strong class="email">{{ email }}</strong>.</p>
+          <pre class="summary">{{ summary() }}</pre>
+          <div class="actions">
+            <button type="button" class="btn" (click)="copy()">
+              {{ copied() ? 'Copiada' : 'Copiar respuesta' }}
+            </button>
+            <a class="btn btn--outline" [href]="mailto()">Abrir mi correo</a>
+          </div>
+          <button type="button" class="link" (click)="reset()">Volver al formulario</button>
+        </div>
       } @else {
         <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
           <div class="field">

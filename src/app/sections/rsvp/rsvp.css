@@ -139,3 +139,41 @@ textarea {
     gap: 0;
   }
 }
+
+.email {
+  font-weight: 500;
+  color: var(--ink);
+  user-select: all;
+  overflow-wrap: anywhere;
+}
+
+.summary {
+  margin: 0 0 24px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  background: var(--ivory);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  text-align: left;
+  white-space: pre-wrap;
+  user-select: all;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.link {
+  margin-top: 20px;
+  border: 0;
+  background: none;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: underline;
+  cursor: pointer;
+}
