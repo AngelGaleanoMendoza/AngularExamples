@@ -1,0 +1,23 @@
+<section id="hospedaje" class="section">
+  <div class="container">
+    <header class="section-head" appReveal>
+      <span class="eyebrow">Dónde quedarse</span>
+      <h2 class="section-title">Hospedaje</h2>
+      <p class="lead">
+        Si vienen de fuera, estas son algunas opciones cercanas que les recomendamos.
+      </p>
+    </header>
+
+    <div class="hotels">
+      @for (hotel of hotels; track hotel.name) {
+        <article class="hotel" appReveal>
+          <app-icon name="bed" class="hotel__icon" />
+          <h3 class="hotel__name">{{ hotel.name }}</h3>
+          <span class="hotel__distance">{{ hotel.distance }}</span>
+          <p class="hotel__desc">{{ hotel.description }}</p>
+          <a class="hotel__link" [href]="hotel.url" target="_blank" rel="noopener">Reservar →</a>
+        </article>
+      }
+    </div>
+  </div>
+</section>

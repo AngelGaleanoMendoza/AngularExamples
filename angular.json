@@ -2,12 +2,11 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "cli": {
-    "packageManager": "npm",
-    "analytics": "ebdeb98b-e64c-4b1a-9d67-ee53f038e2d4"
+    "packageManager": "npm"
   },
   "newProjectRoot": "projects",
   "projects": {
-    "AngularProject": {
+    "boda-anderson-mongalo": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -25,14 +24,7 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/styles.css"
-            ],
-            "server": "src/main.server.ts",
-            "outputMode": "server",
-            "ssr": {
-              "entry": "src/server.ts"
-            }
+            "styles": ["src/styles.css"]
           },
           "configurations": {
             "production": {
@@ -44,8 +36,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
+                  "maximumWarning": "8kB",
+                  "maximumError": "16kB"
                 }
               ],
               "outputHashing": "all"
@@ -62,10 +54,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "AngularProject:build:production"
+              "buildTarget": "boda-anderson-mongalo:build:production"
             },
             "development": {
-              "buildTarget": "AngularProject:build:development"
+              "buildTarget": "boda-anderson-mongalo:build:development"
             }
           },
           "defaultConfiguration": "development"

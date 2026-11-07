@@ -1,0 +1,34 @@
+<section id="ubicacion" class="section section--sand">
+  <div class="container">
+    <header class="section-head" appReveal>
+      <span class="eyebrow">Cómo llegar</span>
+      <h2 class="section-title">Ubicación</h2>
+    </header>
+
+    <div class="venues">
+      @for (venue of venues; track venue.label) {
+        <article class="venue" appReveal>
+          <app-icon name="pin" class="venue__icon" />
+          <span class="eyebrow">{{ venue.label }}</span>
+          <h3 class="venue__name">{{ venue.name }}</h3>
+          <p class="venue__meta">{{ venue.time }}</p>
+          <p class="venue__address">{{ venue.address }}</p>
+          <a class="btn btn--outline" [href]="venue.mapsUrl" target="_blank" rel="noopener">
+            Ver en el mapa
+          </a>
+        </article>
+      }
+    </div>
+
+    <div class="dress" appReveal>
+      <span class="eyebrow">Código de vestimenta</span>
+      <h3 class="dress__title">{{ dress.title }}</h3>
+      <p class="dress__desc">{{ dress.description }}</p>
+      <ul class="dress__palette" aria-label="Paleta de colores sugerida">
+        @for (color of dress.palette; track color) {
+          <li [style.background]="color"></li>
+        }
+      </ul>
+    </div>
+  </div>
+</section>

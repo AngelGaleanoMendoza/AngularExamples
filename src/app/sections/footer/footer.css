@@ -1,0 +1,36 @@
+.footer {
+  padding: 72px 16px 48px;
+  background: var(--night);
+  color: #f3eee6;
+  text-align: center;
+}
+
+.footer__names {
+  margin: 0;
+  font-family: var(--font-script);
+  font-size: clamp(44px, 7vw, 64px);
+  line-height: 1.2;
+}
+
+.footer__names span {
+  color: var(--gold-soft);
+}
+
+.footer__date {
+  margin: 8px 0 0;
+  font-size: 12px;
+  letter-spacing: 0.4em;
+}
+
+.footer__note {
+  font-size: 13px;
+  color: #9d968a;
+}
+
+.footer__top {
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--gold-soft);
+}

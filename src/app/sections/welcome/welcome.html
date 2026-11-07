@@ -1,0 +1,20 @@
+<section class="welcome">
+  <div class="welcome__text" appReveal>
+    <hr class="divider" />
+    @for (line of w.welcome; track $index) {
+      <p>{{ line }}</p>
+    }
+    <p class="welcome__sign">Con cariño, {{ w.partnerOne }} y {{ w.partnerTwo }}</p>
+    <hr class="divider" />
+  </div>
+
+  <figure class="welcome__photo" appReveal>
+    <img
+      src="images/catedral.jpg"
+      alt="Los novios bailando frente a una iglesia colonial"
+      loading="lazy"
+      width="1280"
+      height="852"
+    />
+  </figure>
+</section>

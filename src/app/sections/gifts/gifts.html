@@ -1,0 +1,17 @@
+<section id="regalos" class="gifts">
+  <img class="gifts__bg" src="images/gallery/22.jpg" alt="" loading="lazy" aria-hidden="true" />
+  <div class="gifts__card" appReveal>
+    <app-icon name="gift" class="gifts__icon" />
+    <span class="eyebrow">Mesa de regalos</span>
+    <h2 class="section-title">Regalos</h2>
+    <p class="gifts__msg">{{ gifts.message }}</p>
+    <div class="gifts__options">
+      @for (opt of gifts.options; track opt.title) {
+        <div class="gifts__option">
+          <h3>{{ opt.title }}</h3>
+          <p>{{ opt.detail }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

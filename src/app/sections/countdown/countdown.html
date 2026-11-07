@@ -1,0 +1,18 @@
+<section id="cuenta-regresiva" class="countdown">
+  @if (!married()) {
+    <span class="eyebrow">Cuenta regresiva</span>
+    <div class="units" role="timer" aria-live="off">
+      @for (unit of units(); track unit.label) {
+        <div class="unit">
+          <span class="unit__value">{{ pad(unit.value) }}</span>
+          <span class="unit__label">{{ unit.label }}</span>
+        </div>
+      }
+    </div>
+    <p class="note">para el día en que diremos "sí, acepto"</p>
+  } @else {
+    <p class="married">{{ daysMarried() }} días</p>
+    <p class="note">desde que nos casamos</p>
+  }
+  <a class="btn" href="#rsvp">Confirmar asistencia</a>
+</section>

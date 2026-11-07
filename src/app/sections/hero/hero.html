@@ -1,0 +1,26 @@
+<section id="inicio" class="hero">
+  <picture>
+    <source media="(max-width: 720px)" srcset="images/hero-movil.jpg" />
+    <img
+      class="hero__img"
+      src="images/hero.jpg"
+      alt="Los novios abrazados frente a un muro de piedra colonial"
+      fetchpriority="high"
+    />
+  </picture>
+  <div class="hero__shade" aria-hidden="true"></div>
+
+  <div class="hero__content">
+    <p class="hero__kicker">¡Nos casamos!</p>
+    <h1 class="hero__names">
+      <span class="hero__name">{{ w.partnerOne }}</span>
+      <span class="hero__amp" aria-label="y">&amp;</span>
+      <span class="hero__name">{{ w.partnerTwo }}</span>
+    </h1>
+    <p class="hero__date">{{ date }}</p>
+  </div>
+
+  <a class="hero__scroll" href="#cuenta-regresiva" aria-label="Bajar">
+    <span></span>
+  </a>
+</section>

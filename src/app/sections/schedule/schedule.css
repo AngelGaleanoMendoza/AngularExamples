@@ -1,0 +1,108 @@
+.timeline {
+  position: relative;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: var(--line);
+}
+
+.step {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  padding: 0 0 40px;
+}
+
+.step--right {
+  justify-content: flex-end;
+}
+
+.step__card {
+  width: calc(50% - 56px);
+  text-align: right;
+}
+
+.step--right .step__card {
+  text-align: left;
+}
+
+.step__icon {
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  margin-left: -32px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--paper);
+  color: var(--gold);
+}
+
+.step__icon app-icon {
+  width: 32px;
+  height: 32px;
+}
+
+.step__time {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.step__title {
+  margin: 4px 0 6px;
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.step__desc {
+  margin: 0;
+  color: var(--muted);
+}
+
+@media (max-width: 700px) {
+  .timeline::before {
+    left: 26px;
+  }
+
+  .step,
+  .step--right {
+    justify-content: flex-start;
+    padding-left: 76px;
+  }
+
+  .step__card,
+  .step--right .step__card {
+    width: 100%;
+    text-align: left;
+  }
+
+  .step__icon {
+    left: 26px;
+    width: 52px;
+    height: 52px;
+    margin-left: -26px;
+  }
+
+  .step__icon app-icon {
+    width: 26px;
+    height: 26px;
+  }
+}

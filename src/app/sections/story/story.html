@@ -1,0 +1,21 @@
+<section id="historia" class="section section--sand">
+  <div class="container story">
+    <figure class="story__photo" appReveal>
+      <img
+        src="images/historia.jpg"
+        alt="Los novios besándose junto a una celosía de madera"
+        loading="lazy"
+        width="915"
+        height="1280"
+      />
+    </figure>
+    <div class="story__text" appReveal>
+      <span class="eyebrow">Cómo empezó todo</span>
+      <h2 class="section-title">{{ story.title }}</h2>
+      <hr class="divider story__divider" />
+      @for (p of story.paragraphs; track $index) {
+        <p>{{ p }}</p>
+      }
+    </div>
+  </div>
+</section>

@@ -1,59 +1,48 @@
-# AngularProject
+# Boda Anderson & Mongalo
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.4.
+Página web de la boda, hecha con Angular 21. Es una sola página con estas secciones:
+portada, cuenta regresiva, bienvenida, "reserva la fecha", nuestra historia, itinerario,
+ubicación y código de vestimenta, hospedaje, galería (con visor de fotos), preguntas
+frecuentes, regalos y confirmación de asistencia (RSVP).
 
-## Development server
+## Editar los datos de la boda
 
-To start a local development server, run:
+Todo el contenido (nombres, fecha, lugares, horarios, hoteles, preguntas, regalos, RSVP)
+está en un solo archivo:
 
-```bash
-ng serve
+```
+src/app/wedding.config.ts
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Los datos marcados con `POR CONFIRMAR` son de ejemplo y hay que reemplazarlos.
 
-## Code scaffolding
+## Fotos
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Las fotos vienen de la carpeta de Google Drive **Boda Anderson-Mongalo** y están en
+`public/images/`:
 
-```bash
-ng generate component component-name
-```
+- `hero.jpg`: portada en computadora; `hero-movil.jpg`: portada en celular
+- `catedral.jpg`, `atardecer.jpg`, `historia.jpg`: fotos de las secciones
+- `gallery/NN.jpg` y `gallery/thumbs/NN.jpg`: galería (foto completa y miniatura)
+- `og.jpg`: imagen que aparece al compartir el enlace (WhatsApp, Facebook…)
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Formulario RSVP
 
-```bash
-ng generate --help
-```
+En `wedding.config.ts` → `rsvp`:
 
-## Building
+- `endpoint`: URL de un servicio que reciba las respuestas (por ejemplo Formspree o un
+  Google Apps Script que guarde en una hoja de cálculo). Se envía un JSON por `POST`.
+- Si `endpoint` está vacío, el formulario abre el correo del invitado con la respuesta
+  lista para enviarse a `email`.
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## Comandos
 
 ```bash
-ng test
+npm install      # instalar dependencias
+npm start        # servidor local en http://localhost:4200
+npm run build    # versión de producción en dist/boda-anderson-mongalo/browser
+npm test         # pruebas
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+El resultado de `npm run build` es un sitio estático: se puede publicar en Vercel,
+Netlify, GitHub Pages o Firebase Hosting.
