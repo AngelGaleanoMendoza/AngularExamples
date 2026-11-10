@@ -27,10 +27,11 @@
 /* En pantallas anchas la foto ocupa la derecha y se funde con el fondo,
    dejando la izquierda libre para los nombres (como en la referencia). */
 @media (min-width: 721px) {
-  /* La foto es vertical: con ~56% del ancho cabe la pareja completa. */
+  /* La foto es vertical: se limita el ancho (según la altura de la pantalla)
+     para que la pareja se vea completa, de la cabeza a los pies. */
   .hero__img {
     left: auto;
-    width: 56%;
+    width: min(56%, 108svh);
     object-position: 50% 100%;
     -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 22%);
     mask-image: linear-gradient(90deg, transparent 0%, #000 22%);
