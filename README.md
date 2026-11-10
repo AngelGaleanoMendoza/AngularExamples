@@ -48,6 +48,6 @@ npm test         # pruebas
 
 La página se publica sola en GitHub Pages con cada `push` a `main`, mediante `.github/workflows/deploy-pages.yml`:
 
-https://angelgaleanomendoza.github.io/AngularExamples/
+https://angelgaleanomendoza.github.io/boda-mongalo-anderson/
 
 Configuración necesaria una sola vez en GitHub: **Settings → Pages → Source: GitHub Actions**.
