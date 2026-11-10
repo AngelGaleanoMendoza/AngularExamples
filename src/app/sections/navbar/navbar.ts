@@ -16,7 +16,6 @@ export class Navbar {
     { href: '#historia', label: 'Historia' },
     { href: '#itinerario', label: 'Itinerario' },
     { href: '#ubicacion', label: 'Ubicación' },
-    { href: '#hospedaje', label: 'Hospedaje' },
     { href: '#galeria', label: 'Galería' },
     { href: '#regalos', label: 'Regalos' },
   ];

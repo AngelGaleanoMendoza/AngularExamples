@@ -36,13 +36,6 @@ export interface Venue {
   mapsUrl: string;
 }
 
-export interface Hotel {
-  name: string;
-  description: string;
-  distance: string;
-  url: string;
-}
-
 export interface GalleryPhoto {
   src: string;
   thumb: string;
@@ -171,27 +164,6 @@ export const WEDDING = {
       'Caballeros: traje o guayabera formal. Damas: vestido largo o de cóctel. Les sugerimos evitar el color blanco, reservado para la novia.',
     palette: ['#5c6b4a', '#c8b89a', '#e9e1d3', '#8a6f52', '#2f2f2f'],
   },
-
-  hotels: [
-    {
-      name: 'Hotel opción 1', // POR CONFIRMAR
-      description: 'Cerca del lugar de la recepción. Mencionen la boda al reservar.',
-      distance: 'A 5 min del evento',
-      url: '#',
-    },
-    {
-      name: 'Hotel opción 2', // POR CONFIRMAR
-      description: 'Opción cómoda y económica, ideal para grupos y familias.',
-      distance: 'A 10 min del evento',
-      url: '#',
-    },
-    {
-      name: 'Hotel opción 3', // POR CONFIRMAR
-      description: 'Hotel boutique en el centro histórico.',
-      distance: 'A 15 min del evento',
-      url: '#',
-    },
-  ] satisfies Hotel[],
 
   gifts: {
     message:

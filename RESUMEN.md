@@ -33,7 +33,7 @@ src/app/wedding.config.ts   <- TODOS los datos de la boda (editar aquí)
 src/app/app.ts / app.html   <- arma la página con las secciones en orden
 src/app/sections/*          <- una carpeta por sección (ts + html + css):
   navbar, hero, countdown, welcome, save-the-date, story, schedule,
-  venues (ubicación + código de vestimenta), stay (hospedaje),
+  venues (ubicación + código de vestimenta),
   gallery (cuadrícula + visor con flechas/Esc), gifts, rsvp, footer
 src/app/shared/             <- reveal.directive (aparecer al hacer scroll),
                                format.ts (fechas: MM/DD/AAAA para EE. UU., DD/MM/AAAA para Nicaragua), icon.ts
@@ -56,7 +56,6 @@ scripts/configurar.ps1 / .sh        <- configuración en la computadora local (v
 - Fecha límite del RSVP: hoy es 27 de enero de 2027, inventada.
 - Lugar y dirección de la ceremonia y de la recepción, con enlace de Google Maps.
 - Horarios del itinerario (son de ejemplo).
-- Hoteles recomendados (3 de ejemplo) y sus enlaces.
 - Texto de "Nuestra historia" (es de ejemplo).
 - Datos para regalos (transferencia bancaria / mesa de regalos).
 - RSVP: `rsvp.email` es `correo@ejemplo.com`; `rsvp.endpoint` está vacío.

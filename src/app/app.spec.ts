@@ -26,7 +26,7 @@ describe('App', () => {
     const fixture = TestBed.createComponent(App);
     await fixture.whenStable();
     const el = fixture.nativeElement as HTMLElement;
-    for (const id of ['inicio', 'historia', 'itinerario', 'ubicacion', 'hospedaje', 'galeria', 'regalos', 'rsvp']) {
+    for (const id of ['inicio', 'historia', 'itinerario', 'ubicacion', 'galeria', 'regalos', 'rsvp']) {
       expect(el.querySelector(`#${id}`), id).not.toBeNull();
     }
   });

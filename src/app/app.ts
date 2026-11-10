@@ -7,7 +7,6 @@ import { SaveTheDate } from './sections/save-the-date/save-the-date';
 import { Story } from './sections/story/story';
 import { Schedule } from './sections/schedule/schedule';
 import { Venues } from './sections/venues/venues';
-import { Stay } from './sections/stay/stay';
 import { Gallery } from './sections/gallery/gallery';
 import { Gifts } from './sections/gifts/gifts';
 import { Rsvp } from './sections/rsvp/rsvp';
@@ -24,7 +23,6 @@ import { Footer } from './sections/footer/footer';
     Story,
     Schedule,
     Venues,
-    Stay,
     Gallery,
     Gifts,
     Rsvp,
