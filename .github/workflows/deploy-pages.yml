@@ -4,8 +4,7 @@ name: Publicar página de la boda
 on:
   push:
     branches:
-      - dev
-      - claude/affectionate-ritchie-71zmtw
+      - main
   workflow_dispatch:
 
 permissions:

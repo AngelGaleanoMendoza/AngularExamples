@@ -46,8 +46,7 @@ npm test         # pruebas
 
 ## Publicación
 
-La página se publica sola en GitHub Pages con cada `push` a `dev` (o a la rama de
-trabajo), mediante `.github/workflows/deploy-pages.yml`:
+La página se publica sola en GitHub Pages con cada `push` a `main`, mediante `.github/workflows/deploy-pages.yml`:
 
 https://angelgaleanomendoza.github.io/AngularExamples/
 
