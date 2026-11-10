@@ -43,11 +43,6 @@ export interface Hotel {
   url: string;
 }
 
-export interface Faq {
-  question: string;
-  answer: string;
-}
-
 export interface GalleryPhoto {
   src: string;
   thumb: string;
@@ -197,36 +192,6 @@ export const WEDDING = {
       url: '#',
     },
   ] satisfies Hotel[],
-
-  faqs: [
-    {
-      question: '¿Puedo llevar acompañante?',
-      answer:
-        'Las invitaciones son personales. El número de lugares reservados para ti aparece en tu invitación; si tienes dudas, escríbenos.',
-    },
-    {
-      question: '¿Pueden asistir niños?',
-      answer:
-        'Amamos a sus pequeños, pero esta celebración será solo para adultos. ¡Gracias por entenderlo!',
-    },
-    {
-      question: '¿Cuál es la fecha límite para confirmar?',
-      answer: 'Por favor confirma tu asistencia antes de la fecha indicada en la sección de RSVP.',
-    },
-    {
-      question: '¿Habrá estacionamiento?',
-      answer: 'Sí, ambos lugares cuentan con estacionamiento para los invitados.',
-    },
-    {
-      question: '¿Puedo tomar fotos durante la ceremonia?',
-      answer:
-        'Queremos una ceremonia sin celulares para que todos vivan el momento. Nuestro fotógrafo compartirá las fotos después. ¡En la fiesta pueden tomar todas las que quieran!',
-    },
-    {
-      question: '¿Qué pasa si llueve?',
-      answer: 'No se preocupen: los lugares cuentan con áreas techadas y un plan alternativo.',
-    },
-  ] satisfies Faq[],
 
   gifts: {
     message:

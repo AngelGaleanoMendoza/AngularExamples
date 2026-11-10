@@ -9,7 +9,6 @@ import { Schedule } from './sections/schedule/schedule';
 import { Venues } from './sections/venues/venues';
 import { Stay } from './sections/stay/stay';
 import { Gallery } from './sections/gallery/gallery';
-import { Faq } from './sections/faq/faq';
 import { Gifts } from './sections/gifts/gifts';
 import { Rsvp } from './sections/rsvp/rsvp';
 import { Footer } from './sections/footer/footer';
@@ -27,7 +26,6 @@ import { Footer } from './sections/footer/footer';
     Venues,
     Stay,
     Gallery,
-    Faq,
     Gifts,
     Rsvp,
     Footer,

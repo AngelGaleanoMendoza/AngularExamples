@@ -34,7 +34,7 @@ src/app/app.ts / app.html   <- arma la página con las secciones en orden
 src/app/sections/*          <- una carpeta por sección (ts + html + css):
   navbar, hero, countdown, welcome, save-the-date, story, schedule,
   venues (ubicación + código de vestimenta), stay (hospedaje),
-  gallery (cuadrícula + visor con flechas/Esc), faq, gifts, rsvp, footer
+  gallery (cuadrícula + visor con flechas/Esc), gifts, rsvp, footer
 src/app/shared/             <- reveal.directive (aparecer al hacer scroll),
                                format.ts (fechas: MM/DD/AAAA para EE. UU., DD/MM/AAAA para Nicaragua), icon.ts
 src/styles.css              <- variables de color/tipografía, botones, utilidades
@@ -59,7 +59,6 @@ scripts/configurar.ps1 / .sh        <- configuración en la computadora local (v
 - Hoteles recomendados (3 de ejemplo) y sus enlaces.
 - Texto de "Nuestra historia" (es de ejemplo).
 - Datos para regalos (transferencia bancaria / mesa de regalos).
-- Preguntas frecuentes: revisar que las respuestas sean correctas (niños, acompañantes, etc.).
 - RSVP: `rsvp.email` es `correo@ejemplo.com`; `rsvp.endpoint` está vacío.
 
 ### Formulario RSVP

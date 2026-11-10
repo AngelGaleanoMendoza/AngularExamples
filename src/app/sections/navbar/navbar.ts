@@ -18,7 +18,6 @@ export class Navbar {
     { href: '#ubicacion', label: 'Ubicación' },
     { href: '#hospedaje', label: 'Hospedaje' },
     { href: '#galeria', label: 'Galería' },
-    { href: '#preguntas', label: 'Preguntas' },
     { href: '#regalos', label: 'Regalos' },
   ];
 
