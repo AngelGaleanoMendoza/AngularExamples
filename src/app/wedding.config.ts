@@ -89,6 +89,26 @@ export const WEDDING = {
 
   story: {
     title: 'Nuestra historia',
+    /**
+     * Fotos del carrusel de "Nuestra historia" (números de images/gallery/NN.jpg).
+     * `bw: true` la muestra en blanco y negro.
+     */
+    carousel: [
+      { n: 1, bw: false },
+      { n: 8, bw: true },
+      { n: 16, bw: false },
+      { n: 3, bw: false },
+      { n: 13, bw: true },
+      { n: 21, bw: false },
+      { n: 5, bw: false },
+      { n: 23, bw: true },
+      { n: 10, bw: false },
+      { n: 2, bw: true },
+      { n: 19, bw: false },
+      { n: 11, bw: true },
+      { n: 6, bw: false },
+      { n: 12, bw: true },
+    ],
     paragraphs: [
       // POR CONFIRMAR: escribe aquí cómo se conocieron.
       'Todo empezó con una conversación que ninguno de los dos quería terminar. Desde entonces hemos compartido viajes, risas, planes y mil cafés, y entendimos que lo mejor de cada día era vivirlo juntos.',
@@ -173,6 +193,16 @@ export const WEDDING = {
       { title: 'Lluvia de sobres', detail: 'Habrá un buzón especial durante la recepción.' },
       { title: 'Transferencia', detail: 'Datos bancarios por confirmar' },
     ],
+  },
+
+  /**
+   * Canción de fondo. Suena con el reproductor oficial de Spotify: quien tenga
+   * sesión de Spotify abierta en el navegador la escucha completa; los demás
+   * escuchan la vista previa de 30 segundos que da Spotify.
+   */
+  music: {
+    spotifyTrackId: '2tH28YyKYOldxhuBHoI79M',
+    title: 'Nuestra canción',
   },
 
   rsvp: {

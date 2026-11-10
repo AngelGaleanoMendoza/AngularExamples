@@ -11,6 +11,7 @@ import { Gallery } from './sections/gallery/gallery';
 import { Gifts } from './sections/gifts/gifts';
 import { Rsvp } from './sections/rsvp/rsvp';
 import { Footer } from './sections/footer/footer';
+import { Music } from './sections/music/music';
 
 @Component({
   selector: 'app-root',
@@ -27,6 +28,7 @@ import { Footer } from './sections/footer/footer';
     Gifts,
     Rsvp,
     Footer,
+    Music,
   ],
   templateUrl: './app.html',
 })

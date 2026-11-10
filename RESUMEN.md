@@ -86,3 +86,16 @@ npx ng build --base-href ./         # versión para publicar -> dist/boda-anders
   "Cannot read properties of null (reading 'edgesOut')"; con lockfile (`npm ci`) funciona.
 - Hubo una vista previa privada en claude.ai (https://claude.ai/artifact/8huC8gAzqd7wr23Ndi3aLN)
   que no se actualiza sola con los cambios del repositorio.
+
+## Carrusel y música (agregado después)
+
+- **Carrusel en "Nuestra historia"** (`sections/story`): tira de fotos que se desliza sola,
+  con el monograma de las iniciales encima. Las fotos y cuáles van en blanco y negro se
+  eligen en `WEDDING.story.carousel` (números de `images/gallery/NN.jpg`).
+- **Canción de fondo** (`sections/music`): al entrar aparece una portada con
+  "Abrir invitación". Ese toque arranca la canción, porque los navegadores no dejan sonar
+  una página sin que la persona toque algo. Luego queda un botón flotante para pausar o
+  reanudar. Usa el reproductor oficial de Spotify (`WEDDING.music.spotifyTrackId`):
+  - Con sesión de Spotify en el navegador se escucha completa.
+  - Sin sesión, Spotify solo da 30 segundos de vista previa, que se repiten.
+  - Si el navegador bloquea el arranque, se abre el reproductor para tocar ▶ ahí.

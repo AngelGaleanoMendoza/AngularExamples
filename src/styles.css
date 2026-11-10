@@ -243,3 +243,9 @@ textarea {
   letter-spacing: 0.2em;
   margin-right: 0.1em;
 }
+
+/* Bloquea el scroll mientras se ve la portada de entrada. */
+html.is-locked,
+html.is-locked body {
+  overflow: hidden;
+}
