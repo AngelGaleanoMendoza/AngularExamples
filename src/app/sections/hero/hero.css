@@ -21,18 +21,19 @@
 .hero__shade {
   position: absolute;
   inset: 0;
-  background: linear-gradient(0deg, rgba(18, 17, 16, 0.4) 0%, rgba(18, 17, 16, 0) 30%);
+  background: linear-gradient(0deg, rgba(40, 49, 33, 0.4) 0%, rgba(40, 49, 33, 0) 30%);
 }
 
 /* En pantallas anchas la foto ocupa la derecha y se funde con el fondo,
    dejando la izquierda libre para los nombres (como en la referencia). */
 @media (min-width: 721px) {
+  /* La foto es vertical: con ~56% del ancho cabe la pareja completa. */
   .hero__img {
     left: auto;
-    width: 68%;
-    object-position: 60% 30%;
-    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 34%);
-    mask-image: linear-gradient(90deg, transparent 0%, #000 34%);
+    width: 56%;
+    object-position: 50% 100%;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 22%);
+    mask-image: linear-gradient(90deg, transparent 0%, #000 22%);
   }
 }
 
@@ -85,13 +86,35 @@
   color: #e9dcc4;
 }
 
-.hero__date {
+.hero__dates {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
   margin-top: 26px;
-  font-family: var(--font-display);
-  font-size: clamp(18px, 2.4vw, 26px);
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
+  margin-bottom: 0;
+  padding: 0;
+  list-style: none;
   animation: rise 1.2s 0.8s var(--ease) both;
+}
+
+.hero__event {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.hero__label {
+  font-family: var(--font-label);
+  font-size: clamp(30px, 3.2vw, 42px);
+  line-height: 1.2;
+  color: #e9dcc4;
+}
+
+.hero__date {
+  font-family: var(--font-display);
+  font-size: clamp(17px, 2vw, 23px);
+  letter-spacing: 0.22em;
 }
 
 .hero__scroll {
@@ -150,11 +173,11 @@
   }
 
   .hero__img {
-    object-position: 50% 20%;
+    object-position: 35% 70%;
   }
 
   .hero__shade {
-    background: linear-gradient(0deg, rgba(18, 17, 16, 0.75) 0%, rgba(18, 17, 16, 0.2) 55%, rgba(18, 17, 16, 0) 75%);
+    background: linear-gradient(0deg, rgba(40, 49, 33, 0.75) 0%, rgba(40, 49, 33, 0.2) 55%, rgba(40, 49, 33, 0) 75%);
   }
 
   .hero__content > * {
@@ -170,7 +193,7 @@
   .hero__img,
   .hero__kicker,
   .hero__names,
-  .hero__date,
+  .hero__dates,
   .hero__scroll span {
     animation: none;
   }

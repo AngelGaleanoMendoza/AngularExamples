@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { WEDDING } from '../../wedding.config';
-import { longDate } from '../../shared/format';
+import { WEDDING_DATES } from '../../shared/format';
 
 @Component({
   selector: 'app-hero',
@@ -9,5 +9,5 @@ import { longDate } from '../../shared/format';
 })
 export class Hero {
   protected readonly w = WEDDING;
-  protected readonly date = longDate(WEDDING.date);
+  protected readonly weddings = WEDDING_DATES;
 }

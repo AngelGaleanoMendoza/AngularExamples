@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { WEDDING } from '../../wedding.config';
-import { fullDate, longDate } from '../../shared/format';
+import { WEDDING_DATES, longDate } from '../../shared/format';
 import { RevealDirective } from '../../shared/reveal.directive';
 
 @Component({
@@ -11,6 +11,6 @@ import { RevealDirective } from '../../shared/reveal.directive';
 })
 export class SaveTheDate {
   protected readonly w = WEDDING;
-  protected readonly date = fullDate(WEDDING.date);
+  protected readonly weddings = WEDDING_DATES;
   protected readonly deadline = longDate(WEDDING.rsvpDeadline);
 }

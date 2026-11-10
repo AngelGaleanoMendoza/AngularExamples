@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { WEDDING } from '../../wedding.config';
-import { dottedDate } from '../../shared/format';
+import { WEDDING_DATES } from '../../shared/format';
 
 @Component({
   selector: 'app-footer',
@@ -9,5 +9,5 @@ import { dottedDate } from '../../shared/format';
 })
 export class Footer {
   protected readonly w = WEDDING;
-  protected readonly date = dottedDate(WEDDING.date);
+  protected readonly date = WEDDING_DATES.map((w) => w.dateText).join(' · ');
 }

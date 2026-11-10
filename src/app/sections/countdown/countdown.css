@@ -1,13 +1,72 @@
 .countdown {
   padding: 56px 16px 64px;
   text-align: center;
-  background: var(--paper);
+  background: var(--ivory);
+}
+
+.events {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+  gap: 40px clamp(24px, 5vw, 72px);
+  max-width: 1040px;
+  margin: 4px auto 0;
+}
+
+.event + .event {
+  position: relative;
+}
+
+/* Línea dorada entre las dos bodas (vertical en computadora, horizontal en celular). */
+@media (min-width: 900px) {
+  .event + .event::before {
+    content: '';
+    position: absolute;
+    top: 12%;
+    bottom: 12%;
+    left: calc(clamp(24px, 5vw, 72px) / -2);
+    width: 1px;
+    background: var(--gold-soft);
+    opacity: 0.6;
+  }
+}
+
+@media (max-width: 899px) {
+  .event + .event {
+    padding-top: 40px;
+  }
+
+  .event + .event::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 56px;
+    height: 1px;
+    margin-left: -28px;
+    background: var(--gold-soft);
+  }
+}
+
+.event__label {
+  font-family: var(--font-label);
+  font-size: clamp(46px, 6vw, 62px);
+  line-height: 1.15;
+  color: var(--olive);
+}
+
+.event__date {
+  margin: 2px 0 14px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--gold);
 }
 
 .units {
   display: flex;
   justify-content: center;
-  gap: clamp(10px, 4vw, 48px);
+  gap: clamp(10px, 2.4vw, 32px);
   margin: 8px 0 6px;
 }
 
@@ -15,17 +74,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 64px;
+  min-width: 60px;
 }
 
 .unit + .unit {
-  padding-left: clamp(10px, 4vw, 48px);
+  padding-left: clamp(10px, 2.4vw, 32px);
   border-left: 1px solid var(--line);
 }
 
 .unit__value {
   font-family: var(--font-display);
-  font-size: clamp(38px, 7vw, 60px);
+  font-size: clamp(36px, 5vw, 54px);
   font-weight: 300;
   line-height: 1.1;
   font-variant-numeric: tabular-nums;
@@ -47,8 +106,16 @@
   text-transform: uppercase;
 }
 
+.event__since {
+  margin: 0;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 18px;
+  color: var(--muted);
+}
+
 .note {
-  margin: 14px 0 26px;
+  margin: 32px 0 26px;
   font-family: var(--font-display);
   font-style: italic;
   font-size: 18px;

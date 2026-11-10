@@ -6,6 +6,20 @@
  * con la información real antes de compartir la página.
  */
 
+export interface WeddingEvent {
+  /** Sigla que va antes de "Wedding" en los títulos: "US" o "NIC". */
+  code: string;
+  /** Nombre completo, por ejemplo "US Wedding" (para lectores de pantalla). */
+  label: string;
+  place: string;
+  /** Fecha y hora de la ceremonia, con el desfase horario del lugar. */
+  date: Date;
+  /** Zona horaria del lugar, para mostrar la fecha correcta. */
+  timeZone: string;
+  /** Cómo se escribe la fecha: 'us' = MM/DD/AAAA, 'nic' = DD/MM/AAAA. */
+  dateStyle: 'us' | 'nic';
+}
+
 export interface ScheduleItem {
   time: string;
   title: string;
@@ -44,18 +58,39 @@ export interface GalleryPhoto {
 const portrait = new Set([1, 2, 3, 4, 5, 6, 8, 10, 12, 16, 19, 21]);
 
 export const WEDDING = {
-  /** Nombres tal como aparecen en la portada (POR CONFIRMAR: nombres de pila). */
-  partnerOne: 'Anderson',
-  partnerTwo: 'Mongalo',
+  /** Nombres tal como aparecen en la portada. */
+  partnerOne: 'Justin',
+  partnerTwo: 'Melanie',
   /** Monograma del menú y del pie de página. */
-  initials: { one: 'A', two: 'M' },
+  initials: { one: 'J', two: 'M' },
 
-  /** Fecha y hora de la ceremonia, en hora local (POR CONFIRMAR). */
-  date: new Date('2027-04-17T16:00:00-06:00'),
+  /**
+   * Las dos bodas, en orden. Cada una tiene su propia cuenta regresiva.
+   * La hora (4:00 p. m.) está POR CONFIRMAR en las dos.
+   */
+  weddings: [
+    {
+      code: 'US',
+      label: 'US Wedding',
+      place: 'Texas',
+      date: new Date('2027-02-27T16:00:00-06:00'),
+      timeZone: 'America/Chicago',
+      dateStyle: 'us',
+    },
+    {
+      code: 'NIC',
+      label: 'NIC Wedding',
+      place: 'Nicaragua',
+      date: new Date('2027-11-27T16:00:00-06:00'),
+      timeZone: 'America/Managua',
+      dateStyle: 'nic',
+    },
+  ] satisfies WeddingEvent[],
+
   /** Fecha límite para confirmar asistencia (POR CONFIRMAR). */
-  rsvpDeadline: new Date('2027-03-17T23:59:00-06:00'),
+  rsvpDeadline: new Date('2027-01-27T23:59:00-06:00'),
 
-  /** Zona horaria del lugar de la boda. */
+  /** Zona horaria para mostrar la fecha límite del RSVP. */
   timeZone: 'America/Managua',
 
   welcome: [

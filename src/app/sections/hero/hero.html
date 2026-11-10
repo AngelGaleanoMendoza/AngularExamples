@@ -1,13 +1,10 @@
 <section id="inicio" class="hero">
-  <picture>
-    <source media="(max-width: 720px)" srcset="images/hero-movil.jpg" />
-    <img
-      class="hero__img"
-      src="images/hero.jpg"
-      alt="Los novios abrazados frente a un muro de piedra colonial"
-      fetchpriority="high"
-    />
-  </picture>
+  <img
+    class="hero__img"
+    src="images/catedral.jpg"
+    alt="Los novios bailando frente a una iglesia colonial"
+    fetchpriority="high"
+  />
   <div class="hero__shade" aria-hidden="true"></div>
 
   <div class="hero__content">
@@ -17,7 +14,14 @@
       <span class="hero__amp" aria-label="y">&amp;</span>
       <span class="hero__name">{{ w.partnerTwo }}</span>
     </h1>
-    <p class="hero__date">{{ date }}</p>
+    <ul class="hero__dates">
+      @for (wedding of weddings; track wedding.label) {
+        <li class="hero__event">
+          <span class="hero__label" [attr.aria-label]="wedding.label"><b class="code">{{ wedding.code }}</b> Wedding</span>
+          <span class="hero__date">{{ wedding.dateText }}</span>
+        </li>
+      }
+    </ul>
   </div>
 
   <a class="hero__scroll" href="#cuenta-regresiva" aria-label="Bajar">

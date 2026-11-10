@@ -1,5 +1,5 @@
 import { Component, DestroyRef, computed, inject, signal } from '@angular/core';
-import { WEDDING } from '../../wedding.config';
+import { WEDDING_DATES } from '../../shared/format';
 
 const SECOND = 1000;
 const MINUTE = 60 * SECOND;
@@ -13,22 +13,26 @@ const DAY = 24 * HOUR;
 })
 export class Countdown {
   private readonly now = signal(Date.now());
-  private readonly diff = computed(() => WEDDING.date.getTime() - this.now());
 
-  /** true once the wedding day has passed. */
-  protected readonly married = computed(() => this.diff() <= 0);
-
-  protected readonly units = computed(() => {
-    const ms = Math.max(this.diff(), 0);
-    return [
-      { value: Math.floor(ms / DAY), label: 'Días' },
-      { value: Math.floor((ms % DAY) / HOUR), label: 'Horas' },
-      { value: Math.floor((ms % HOUR) / MINUTE), label: 'Minutos' },
-      { value: Math.floor((ms % MINUTE) / SECOND), label: 'Segundos' },
-    ];
-  });
-
-  protected readonly daysMarried = computed(() => Math.floor(-this.diff() / DAY));
+  /** Una cuenta regresiva por boda (EE. UU. y Nicaragua). */
+  protected readonly events = computed(() =>
+    WEDDING_DATES.map((wedding) => {
+      const diff = wedding.date.getTime() - this.now();
+      const ms = Math.max(diff, 0);
+      return {
+        ...wedding,
+        /** true once the wedding day has passed. */
+        married: diff <= 0,
+        daysMarried: Math.floor(-diff / DAY),
+        units: [
+          { value: Math.floor(ms / DAY), label: 'Días' },
+          { value: Math.floor((ms % DAY) / HOUR), label: 'Horas' },
+          { value: Math.floor((ms % HOUR) / MINUTE), label: 'Minutos' },
+          { value: Math.floor((ms % MINUTE) / SECOND), label: 'Segundos' },
+        ],
+      };
+    }),
+  );
 
   constructor() {
     const id = setInterval(() => this.now.set(Date.now()), SECOND);

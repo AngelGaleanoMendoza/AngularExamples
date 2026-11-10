@@ -1,28 +1,22 @@
-import { WEDDING } from '../wedding.config';
+import { WEDDING, WeddingEvent } from '../wedding.config';
 
 const LOCALE = 'es-NI';
-/** Las fechas se muestran en la hora local de la boda, sin importar dónde esté el invitado. */
-const timeZone = WEDDING.timeZone;
 
-/** "17 de abril de 2027" */
-export function longDate(date: Date): string {
+/** "17 de abril de 2027", en la hora local de la boda, sin importar dónde esté el invitado. */
+export function longDate(date: Date, timeZone = WEDDING.timeZone): string {
   return new Intl.DateTimeFormat(LOCALE, { day: 'numeric', month: 'long', year: 'numeric', timeZone }).format(date);
 }
 
-/** "sábado, 17 de abril de 2027" */
-export function fullDate(date: Date): string {
-  return new Intl.DateTimeFormat(LOCALE, {
-    weekday: 'long',
-    day: 'numeric',
-    month: 'long',
+/** "02/27/2027" para la boda de EE. UU. y "27/11/2027" para la de Nicaragua. */
+export function weddingDate(wedding: WeddingEvent): string {
+  const locale = wedding.dateStyle === 'us' ? 'en-US' : 'en-GB';
+  return new Intl.DateTimeFormat(locale, {
+    day: '2-digit',
+    month: '2-digit',
     year: 'numeric',
-    timeZone,
-  }).format(date);
+    timeZone: wedding.timeZone,
+  }).format(wedding.date);
 }
 
-/** "17 · 04 · 2027" */
-export function dottedDate(date: Date): string {
-  const parts = new Intl.DateTimeFormat('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric', timeZone }).formatToParts(date);
-  const get = (t: string) => parts.find((p) => p.type === t)?.value ?? '';
-  return `${get('day')} · ${get('month')} · ${get('year')}`;
-}
+/** Las bodas con su fecha ya escrita, para mostrarlas en la plantilla. */
+export const WEDDING_DATES = WEDDING.weddings.map((w) => ({ ...w, dateText: weddingDate(w) }));

@@ -7,18 +7,23 @@ Pega este archivo al inicio de una conversación nueva para continuar donde qued
 Página web de boda de una sola página, en español, hecha con **Angular 21** (componentes
 standalone, signals, sin zone.js, sin SSR). Diseño inspirado en dos referencias:
 
-- Portada con la foto de los novios y los nombres en mayúsculas con un "&" en letra cursiva,
-  y debajo una cuenta regresiva con botón de RSVP.
-- Una sección negra con los nombres en cursiva, líneas doradas, fecha y botón "Confirma antes del…".
+- Portada con la foto de los novios frente a la iglesia (`catedral.jpg`), los nombres
+  "JUSTIN & MELANIE" y las dos fechas ("US Wedding 02/27/2027" y "NIC Wedding 27/11/2027").
+- Debajo, **dos cuentas regresivas**: US Wedding (Texas) y NIC Wedding (Nicaragua).
+- Una sección verde "Reserva la fecha" con los nombres en cursiva, las dos fechas y el botón "Confirma antes del…".
 
-Tipografías (Google Fonts): Cormorant Garamond (títulos), Pinyon Script (cursiva), Montserrat
-(texto). Paleta: blanco, marfil, negro cálido `#121110`, dorado `#b08d57` / `#c9a76a`, oliva `#5c6b4a`.
+Tipografías (Google Fonts): Cormorant Garamond (títulos), Pinyon Script (cursiva), Great Vibes
+("Wedding" en los títulos de cada boda), Montserrat (texto). Paleta (la novia pidió "no negro, más verde,
+verde crema ivory"): blanco, marfil, crema `#ece4d2`, verde oliva profundo `#3f4b35` para los fondos
+oscuros, oliva `#5c6b4a` en botones, dorado `#b08d57` / `#c9a76a`.
+
+Fechas: la de EE. UU. se escribe MM/DD/AAAA (02/27/2027) y la de Nicaragua DD/MM/AAAA (27/11/2027).
 
 ## Repositorio
 
-- GitHub: `AngelGaleanoMendoza/AngularExamples`, que se va a renombrar a `boda-mongalo-anderson`.
-- Rama de trabajo: **`main`**. Hay que ponerla como rama principal en GitHub, porque hoy
-  la principal sigue siendo `dev`, que todavía tiene el proyecto viejo de Angular Examples.
+- GitHub: `AngelGaleanoMendoza/boda-mongalo-anderson` (antes AngularExamples).
+- Rama de trabajo y principal: **`main`**. `dev` tiene el proyecto viejo de Angular Examples.
+- Publicada en **https://angelgaleanomendoza.github.io/boda-mongalo-anderson/** (se actualiza sola en cada push a main).
 - También existe `claude/affectionate-ritchie-71zmtw`, con el mismo contenido que `main`.
 
 ## Estructura
@@ -31,11 +36,10 @@ src/app/sections/*          <- una carpeta por sección (ts + html + css):
   venues (ubicación + código de vestimenta), stay (hospedaje),
   gallery (cuadrícula + visor con flechas/Esc), faq, gifts, rsvp, footer
 src/app/shared/             <- reveal.directive (aparecer al hacer scroll),
-                               format.ts (fechas en es-NI, zona America/Managua), icon.ts
+                               format.ts (fechas: MM/DD/AAAA para EE. UU., DD/MM/AAAA para Nicaragua), icon.ts
 src/styles.css              <- variables de color/tipografía, botones, utilidades
 public/images/              <- fotos (de la carpeta de Drive "Boda Anderson-Mongalo")
-  hero.jpg (portada en computadora), hero-movil.jpg (portada en celular),
-  catedral.jpg, atardecer.jpg, historia.jpg, og.jpg (imagen al compartir),
+  catedral.jpg (portada), hero.jpg (bienvenida), hero-movil.jpg (sin usar), atardecer.jpg, historia.jpg, og.jpg (imagen al compartir),
   gallery/01-24.jpg + gallery/thumbs/01-24.jpg
 .github/workflows/deploy-pages.yml  <- publica en GitHub Pages en cada push a main
 scripts/configurar.ps1 / .sh        <- configuración en la computadora local (ver abajo)
@@ -43,25 +47,13 @@ scripts/configurar.ps1 / .sh        <- configuración en la computadora local (v
 
 ## Pendiente
 
-### Configuración de GitHub (no se pudo hacer desde la nube)
-
-Lo hace el script `scripts/configurar.ps1` (Windows) o `scripts/configurar.sh` (Mac/Linux)
-si se tiene GitHub CLI con sesión iniciada (`gh auth login`). Si no, a mano:
-
-1. Settings → Branches → Default branch: **main**
-2. Settings → General → Repository name: **boda-mongalo-anderson**
-3. Settings → Pages → Source: **GitHub Actions**
-4. Volver a correr el workflow "Publicar página de la boda" (pestaña Actions).
-
-La página quedará en **https://angelgaleanomendoza.github.io/boda-mongalo-anderson/**
-(la etiqueta `og:image` en `src/index.html` ya apunta a esa dirección).
+### Configuración de GitHub: hecha (rama principal main, repo renombrado, Pages con GitHub Actions).
 
 ### Datos reales que faltan (en `src/app/wedding.config.ts`, marcados `POR CONFIRMAR`)
 
-- Nombres de pila de los novios: hoy la portada dice "Anderson & Mongalo"
-  (apellidos tomados del nombre de la carpeta de Drive). También `initials`.
-- Fecha y hora de la boda: hoy es **17 de abril de 2027, 4:00 p. m.**, inventada.
-- Fecha límite del RSVP: hoy es 17 de marzo de 2027, inventada.
+- Hora de cada boda: las dos están a las 4:00 p. m. de ejemplo (las fechas sí son reales:
+  27 feb 2027 en Texas y 27 nov 2027 en Nicaragua).
+- Fecha límite del RSVP: hoy es 27 de enero de 2027, inventada.
 - Lugar y dirección de la ceremonia y de la recepción, con enlace de Google Maps.
 - Horarios del itinerario (son de ejemplo).
 - Hoteles recomendados (3 de ejemplo) y sus enlaces.
