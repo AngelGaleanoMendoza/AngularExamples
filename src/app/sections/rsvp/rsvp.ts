@@ -27,14 +27,14 @@ export class Rsvp {
   protected readonly form = this.fb.nonNullable.group({
     name: ['', [Validators.required, Validators.minLength(3)]],
     contact: ['', Validators.required],
-    attending: ['si' as 'si' | 'no', Validators.required],
+    attending: ['yes' as 'yes' | 'no', Validators.required],
     guests: [1],
     diet: [''],
     message: [''],
   });
 
   protected get attending(): boolean {
-    return this.form.controls.attending.value === 'si';
+    return this.form.controls.attending.value === 'yes';
   }
 
   protected invalid(control: keyof typeof this.form.controls): boolean {
@@ -50,12 +50,12 @@ export class Rsvp {
 
     const data = this.form.getRawValue();
     const payload = {
-      nombre: data.name,
-      contacto: data.contact,
-      asistira: data.attending === 'si' ? 'Sí' : 'No',
-      personas: data.attending === 'si' ? data.guests : 0,
-      alimentacion: data.diet,
-      mensaje: data.message,
+      name: data.name,
+      contact: data.contact,
+      attending: data.attending === 'yes' ? 'Yes' : 'No',
+      guests: data.attending === 'yes' ? data.guests : 0,
+      dietary: data.diet,
+      message: data.message,
     };
 
     const { endpoint, email } = WEDDING.rsvp;
@@ -65,7 +65,7 @@ export class Rsvp {
       const body = Object.entries(payload)
         .map(([k, v]) => `${k}: ${v}`)
         .join('\n');
-      const subject = `RSVP boda – ${data.name}`;
+      const subject = `Wedding RSVP – ${data.name}`;
       this.summary.set(body);
       this.mailto.set(
         `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`,

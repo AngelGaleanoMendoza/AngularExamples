@@ -1,66 +1,66 @@
 <section id="rsvp" class="section section--sand">
   <div class="container">
     <header class="section-head" appReveal>
-      <span class="eyebrow">Por favor responde antes del {{ deadline }}</span>
-      <h2 class="section-title">Confirma tu asistencia</h2>
+      <span class="eyebrow">Kindly reply by {{ deadline }}</span>
+      <h2 class="section-title">Will you join us?</h2>
     </header>
 
     <div class="card" appReveal>
       @if (status() === 'sent') {
         <div class="done" role="status">
-          <h3>¡Gracias!</h3>
+          <h3>Thank you!</h3>
           <p>
-            {{ attending ? 'Nos hace muy felices que nos acompañes.' : 'Te vamos a extrañar. ¡Gracias por avisarnos!' }}
+            {{ attending ? 'We are so happy you will be there.' : 'We will miss you. Thank you for letting us know!' }}
           </p>
-          <button type="button" class="btn btn--outline" (click)="reset()">Enviar otra respuesta</button>
+          <button type="button" class="btn btn--outline" (click)="reset()">Send another response</button>
         </div>
       } @else if (status() === 'manual') {
         <div class="done" role="status">
-          <h3>¡Casi listo!</h3>
-          <p>Envíanos tu respuesta por correo a <strong class="email">{{ email }}</strong>.</p>
+          <h3>Almost done!</h3>
+          <p>Please email your response to <strong class="email">{{ email }}</strong>.</p>
           <pre class="summary">{{ summary() }}</pre>
           <div class="actions">
             <button type="button" class="btn" (click)="copy()">
-              {{ copied() ? 'Copiada' : 'Copiar respuesta' }}
+              {{ copied() ? 'Copied' : 'Copy response' }}
             </button>
-            <a class="btn btn--outline" [href]="mailto()">Abrir mi correo</a>
+            <a class="btn btn--outline" [href]="mailto()">Open my email</a>
           </div>
-          <button type="button" class="link" (click)="reset()">Volver al formulario</button>
+          <button type="button" class="link" (click)="reset()">Back to the form</button>
         </div>
       } @else {
         <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
           <div class="field">
-            <label for="name">Nombre completo</label>
+            <label for="name">Full name</label>
             <input id="name" formControlName="name" autocomplete="name" [attr.aria-invalid]="invalid('name')" />
             @if (invalid('name')) {
-              <span class="error">Escribe tu nombre.</span>
+              <span class="error">Please enter your name.</span>
             }
           </div>
 
           <div class="field">
-            <label for="contact">Correo o teléfono</label>
+            <label for="contact">Email or phone</label>
             <input id="contact" formControlName="contact" autocomplete="email" [attr.aria-invalid]="invalid('contact')" />
             @if (invalid('contact')) {
-              <span class="error">Déjanos una forma de contactarte.</span>
+              <span class="error">Please leave a way to reach you.</span>
             }
           </div>
 
           <fieldset class="field choice">
-            <legend>¿Nos acompañarás?</legend>
+            <legend>Will you attend?</legend>
             <label class="pill">
-              <input type="radio" formControlName="attending" value="si" />
-              <span>Sí, ahí estaré</span>
+              <input type="radio" formControlName="attending" value="yes" />
+              <span>Joyfully accepts</span>
             </label>
             <label class="pill">
               <input type="radio" formControlName="attending" value="no" />
-              <span>No podré asistir</span>
+              <span>Regretfully declines</span>
             </label>
           </fieldset>
 
           @if (attending) {
             <div class="row">
               <div class="field">
-                <label for="guests">Número de personas</label>
+                <label for="guests">Number of guests</label>
                 <select id="guests" formControlName="guests">
                   @for (n of guestOptions; track n) {
                     <option [ngValue]="n">{{ n }}</option>
@@ -68,23 +68,23 @@
                 </select>
               </div>
               <div class="field">
-                <label for="diet">Alergias o restricciones</label>
-                <input id="diet" formControlName="diet" placeholder="Vegetariano, sin gluten…" />
+                <label for="diet">Allergies or dietary needs</label>
+                <input id="diet" formControlName="diet" placeholder="Vegetarian, gluten-free…" />
               </div>
             </div>
           }
 
           <div class="field">
-            <label for="message">Un mensaje para los novios (opcional)</label>
+            <label for="message">A message for the couple (optional)</label>
             <textarea id="message" formControlName="message" rows="3"></textarea>
           </div>
 
           @if (status() === 'error') {
-            <p class="error" role="alert">No pudimos enviar tu respuesta. Inténtalo de nuevo.</p>
+            <p class="error" role="alert">We couldn't send your response. Please try again.</p>
           }
 
           <button type="submit" class="btn submit" [disabled]="status() === 'sending'">
-            {{ status() === 'sending' ? 'Enviando…' : 'Enviar respuesta' }}
+            {{ status() === 'sending' ? 'Sending…' : 'Send RSVP' }}
           </button>
         </form>
       }

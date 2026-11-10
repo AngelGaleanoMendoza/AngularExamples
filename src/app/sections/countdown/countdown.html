@@ -1,5 +1,5 @@
-<section id="cuenta-regresiva" class="countdown">
-  <span class="eyebrow">Cuenta regresiva</span>
+<section id="countdown" class="countdown">
+  <span class="eyebrow">Countdown</span>
 
   <div class="events">
     @for (event of events(); track event.label) {
@@ -16,13 +16,13 @@
             }
           </div>
         } @else {
-          <p class="married">{{ event.daysMarried }} días</p>
-          <p class="event__since">desde que nos casamos</p>
+          <p class="married">{{ event.daysMarried }} days</p>
+          <p class="event__since">since we said "I do"</p>
         }
       </article>
     }
   </div>
 
-  <p class="note">para los días en que diremos "sí, acepto"</p>
-  <a class="btn" href="#rsvp">Confirmar asistencia</a>
+  <p class="note">until the days we say "I do"</p>
+  <a class="btn" href="#rsvp">RSVP</a>
 </section>

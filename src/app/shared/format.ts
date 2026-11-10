@@ -1,8 +1,8 @@
 import { WEDDING, WeddingEvent } from '../wedding.config';
 
-const LOCALE = 'es-NI';
+const LOCALE = 'en-US';
 
-/** "17 de abril de 2027", en la hora local de la boda, sin importar dónde esté el invitado. */
+/** "April 17, 2027", en la hora local de la boda, sin importar dónde esté el invitado. */
 export function longDate(date: Date, timeZone = WEDDING.timeZone): string {
   return new Intl.DateTimeFormat(LOCALE, { day: 'numeric', month: 'long', year: 'numeric', timeZone }).format(date);
 }

@@ -1,6 +1,6 @@
 <header class="nav" [class.nav--solid]="scrolled() || open()">
   <div class="nav__inner">
-    <a class="monogram" href="#inicio" (click)="close()" aria-label="Ir al inicio">
+    <a class="monogram" href="#home" (click)="close()" aria-label="Go to top">
       {{ w.initials.one }}<span>&amp;</span>{{ w.initials.two }}
     </a>
 
@@ -11,12 +11,12 @@
       aria-controls="menu"
       (click)="toggle()"
     >
-      <span class="sr-only">Menú</span>
+      <span class="sr-only">Menu</span>
       <span class="burger__bar"></span>
       <span class="burger__bar"></span>
     </button>
 
-    <nav id="menu" class="menu" [class.menu--open]="open()" aria-label="Secciones">
+    <nav id="menu" class="menu" [class.menu--open]="open()" aria-label="Sections">
       @for (link of links; track link.href) {
         <a class="menu__link" [href]="link.href" (click)="close()">{{ link.label }}</a>
       }

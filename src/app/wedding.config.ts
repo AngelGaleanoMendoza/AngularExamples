@@ -82,13 +82,13 @@ export const WEDDING = {
   timeZone: 'America/Managua',
 
   welcome: [
-    '¡Bienvenidos a nuestra página de boda!',
-    'Creamos este espacio para compartir con ustedes todos los detalles de nuestro gran día: el itinerario, cómo llegar, dónde hospedarse y todo lo que necesitan saber.',
-    'No vemos la hora de celebrar con ustedes.',
+    'Welcome to our wedding website!',
+    'We created this space to share all the details of our big day with you: the schedule, how to get there and everything else you need to know.',
+    'We can\'t wait to celebrate with you.',
   ],
 
   story: {
-    title: 'Nuestra historia',
+    title: 'Our Story',
     /**
      * Fotos del carrusel de "Nuestra historia" (números de images/gallery/NN.jpg).
      * `bw: true` la muestra en blanco y negro.
@@ -111,69 +111,69 @@ export const WEDDING = {
     ],
     paragraphs: [
       // POR CONFIRMAR: escribe aquí cómo se conocieron.
-      'Todo empezó con una conversación que ninguno de los dos quería terminar. Desde entonces hemos compartido viajes, risas, planes y mil cafés, y entendimos que lo mejor de cada día era vivirlo juntos.',
-      'Un día, entre calles empedradas y paredes coloniales, llegó la pregunta más importante… y la respuesta fue un sí lleno de emoción. Ahora queremos dar el siguiente paso rodeados de las personas que más queremos.',
+      'It all started with a conversation neither of us wanted to end. Since then we have shared trips, laughter, plans and countless cups of coffee, and we realized the best part of every day was living it together.',
+      'One day, among cobblestone streets and colonial walls, came the most important question… and the answer was a joyful yes. Now we want to take the next step surrounded by the people we love most.',
     ],
   },
 
   venues: [
     {
-      label: 'Ceremonia',
-      name: 'Lugar de la ceremonia', // POR CONFIRMAR
-      address: 'Dirección por confirmar',
-      time: '4:00 p. m.',
+      label: 'Ceremony',
+      name: 'Ceremony venue', // POR CONFIRMAR
+      address: 'Address to be announced',
+      time: '4:00 PM',
       mapsUrl: 'https://maps.google.com',
     },
     {
-      label: 'Recepción',
-      name: 'Lugar de la recepción', // POR CONFIRMAR
-      address: 'Dirección por confirmar',
-      time: '6:00 p. m.',
+      label: 'Reception',
+      name: 'Reception venue', // POR CONFIRMAR
+      address: 'Address to be announced',
+      time: '6:00 PM',
       mapsUrl: 'https://maps.google.com',
     },
   ] satisfies Venue[],
 
   schedule: [
     {
-      time: '3:30 p. m.',
-      title: 'Llegada de invitados',
-      place: 'Ceremonia',
-      description: 'Les pedimos llegar con tiempo para acomodarse con calma.',
+      time: '3:30 PM',
+      title: 'Guest arrival',
+      place: 'Ceremony',
+      description: 'Please arrive early so you can find your seat without rushing.',
       icon: 'rings',
     },
     {
-      time: '4:00 p. m.',
-      title: 'Ceremonia',
-      place: 'Ceremonia',
-      description: 'El momento más especial: el "sí, acepto".',
+      time: '4:00 PM',
+      title: 'Ceremony',
+      place: 'Ceremony',
+      description: 'The most special moment: "I do."',
       icon: 'rings',
     },
     {
-      time: '5:00 p. m.',
-      title: 'Cóctel de bienvenida',
-      place: 'Recepción',
-      description: 'Bebidas, bocadillos y fotos mientras cae el atardecer.',
+      time: '5:00 PM',
+      title: 'Cocktail hour',
+      place: 'Reception',
+      description: 'Drinks, bites and photos as the sun goes down.',
       icon: 'glass',
     },
     {
-      time: '6:30 p. m.',
-      title: 'Cena',
-      place: 'Recepción',
-      description: 'Brindis, palabras de los padrinos y una cena para compartir.',
+      time: '6:30 PM',
+      title: 'Dinner',
+      place: 'Reception',
+      description: 'Toasts, a few words from our loved ones and dinner together.',
       icon: 'dinner',
     },
     {
-      time: '8:00 p. m.',
-      title: '¡A bailar!',
-      place: 'Recepción',
-      description: 'Primer baile de los novios y fiesta hasta que el cuerpo aguante.',
+      time: '8:00 PM',
+      title: 'Let\'s dance!',
+      place: 'Reception',
+      description: 'Our first dance, then the party goes on as long as you can keep up.',
       icon: 'music',
     },
     {
-      time: '12:00 a. m.',
-      title: 'Despedida',
-      place: 'Recepción',
-      description: 'Gracias por acompañarnos en este día tan especial.',
+      time: '12:00 AM',
+      title: 'Farewell',
+      place: 'Reception',
+      description: 'Thank you for sharing this special day with us.',
       icon: 'moon',
     },
   ] satisfies ScheduleItem[],
@@ -181,17 +181,17 @@ export const WEDDING = {
   dressCode: {
     title: 'Formal',
     description:
-      'Caballeros: traje o guayabera formal. Damas: vestido largo o de cóctel. Les sugerimos evitar el color blanco, reservado para la novia.',
+      'Gentlemen: suit or formal guayabera. Ladies: long or cocktail dress. Please avoid white, which is reserved for the bride.',
     palette: ['#5c6b4a', '#c8b89a', '#e9e1d3', '#8a6f52', '#2f2f2f'],
   },
 
   gifts: {
     message:
-      'Su presencia es nuestro mejor regalo. Si desean tener un detalle con nosotros, agradeceremos su aporte para nuestra luna de miel y nuestro nuevo hogar.',
+      'Your presence is the greatest gift. If you would like to give us something, a contribution toward our honeymoon and our new home would be greatly appreciated.',
     // POR CONFIRMAR: datos bancarios o enlace a mesa de regalos.
     options: [
-      { title: 'Lluvia de sobres', detail: 'Habrá un buzón especial durante la recepción.' },
-      { title: 'Transferencia', detail: 'Datos bancarios por confirmar' },
+      { title: 'Card box', detail: 'There will be a card box at the reception.' },
+      { title: 'Bank transfer', detail: 'Bank details to be announced' },
     ],
   },
 
@@ -202,7 +202,7 @@ export const WEDDING = {
    */
   music: {
     spotifyTrackId: '2tH28YyKYOldxhuBHoI79M',
-    title: 'Nuestra canción',
+    title: 'Our song',
   },
 
   rsvp: {
@@ -223,7 +223,7 @@ export const WEDDING = {
     return {
       src: `images/gallery/${n}.jpg`,
       thumb: `images/gallery/thumbs/${n}.jpg`,
-      alt: `Sesión de fotos de Anderson y Mongalo, foto ${i + 1}`,
+      alt: `Justin and Melanie engagement session, photo ${i + 1}`,
       orientation: portrait.has(i + 1) ? 'portrait' : 'landscape',
     } satisfies GalleryPhoto;
   }),

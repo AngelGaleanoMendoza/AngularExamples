@@ -25,10 +25,10 @@ export class Countdown {
         married: diff <= 0,
         daysMarried: Math.floor(-diff / DAY),
         units: [
-          { value: Math.floor(ms / DAY), label: 'Días' },
-          { value: Math.floor((ms % DAY) / HOUR), label: 'Horas' },
-          { value: Math.floor((ms % HOUR) / MINUTE), label: 'Minutos' },
-          { value: Math.floor((ms % MINUTE) / SECOND), label: 'Segundos' },
+          { value: Math.floor(ms / DAY), label: 'Days' },
+          { value: Math.floor((ms % DAY) / HOUR), label: 'Hours' },
+          { value: Math.floor((ms % HOUR) / MINUTE), label: 'Minutes' },
+          { value: Math.floor((ms % MINUTE) / SECOND), label: 'Seconds' },
         ],
       };
     }),

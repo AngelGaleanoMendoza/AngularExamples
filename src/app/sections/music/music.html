@@ -11,13 +11,13 @@
       <p class="intro__mono" aria-hidden="true">
         {{ w.initials.one }}<span>&amp;</span>{{ w.initials.two }}
       </p>
-      <p class="intro__kicker">Con mucho amor te invitamos a nuestra boda</p>
+      <p class="intro__kicker">With love, we invite you to our wedding</p>
       <p id="intro-title" class="intro__names">{{ w.partnerOne }} &amp; {{ w.partnerTwo }}</p>
       <button type="button" class="intro__open" (click)="open(true)">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V6l11-2v12" /><circle cx="6.5" cy="18" r="2.5" /><circle cx="17.5" cy="16" r="2.5" /></svg>
-        Abrir invitación
+        Open invitation
       </button>
-      <button type="button" class="intro__mute" (click)="open(false)">Entrar sin música</button>
+      <button type="button" class="intro__mute" (click)="open(false)">Enter without music</button>
     </div>
   </div>
 }
@@ -25,7 +25,7 @@
 <div class="player" [class.player--visible]="!intro()">
   <div class="player__panel" [class.player__panel--open]="panel()">
     @if (hint()) {
-      <p class="player__hint">Toca ▶ para escuchar {{ w.music.title.toLowerCase() }}</p>
+      <p class="player__hint">Tap ▶ to play {{ w.music.title.toLowerCase() }}</p>
     }
     <div #embed class="player__embed"></div>
   </div>
@@ -36,7 +36,7 @@
       class="player__more"
       (click)="togglePanel()"
       [attr.aria-expanded]="panel()"
-      [attr.aria-label]="panel() ? 'Ocultar reproductor' : 'Mostrar reproductor'"
+      [attr.aria-label]="panel() ? 'Hide player' : 'Show player'"
     >
       {{ panel() ? '×' : '♫' }}
     </button>
@@ -45,7 +45,7 @@
       class="player__toggle"
       [class.player__toggle--on]="playing()"
       (click)="toggle()"
-      [attr.aria-label]="playing() ? 'Pausar la canción' : 'Reproducir la canción'"
+      [attr.aria-label]="playing() ? 'Pause the song' : 'Play the song'"
       [attr.aria-pressed]="playing()"
     >
       @if (playing()) {

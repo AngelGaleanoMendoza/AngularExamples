@@ -12,12 +12,12 @@ export class Navbar {
   protected readonly open = signal(false);
 
   protected readonly links = [
-    { href: '#inicio', label: 'Inicio' },
-    { href: '#historia', label: 'Historia' },
-    { href: '#itinerario', label: 'Itinerario' },
-    { href: '#ubicacion', label: 'Ubicación' },
-    { href: '#galeria', label: 'Galería' },
-    { href: '#regalos', label: 'Regalos' },
+    { href: '#home', label: 'Home' },
+    { href: '#story', label: 'Our Story' },
+    { href: '#schedule', label: 'Schedule' },
+    { href: '#location', label: 'Location' },
+    { href: '#gallery', label: 'Gallery' },
+    { href: '#gifts', label: 'Gifts' },
   ];
 
   @HostListener('window:scroll')

@@ -1,5 +1,5 @@
-<section id="historia" class="story">
-  <div class="reel" role="img" [attr.aria-label]="'Fotos de ' + story.title">
+<section id="story" class="story">
+  <div class="reel" role="img" [attr.aria-label]="'Photos for ' + story.title">
     <div class="reel__track" [style.animation-duration]="duration">
       @for (slide of track; track $index) {
         <img
@@ -21,7 +21,7 @@
   </div>
 
   <div class="story__text" appReveal>
-    <span class="eyebrow">Cómo empezó todo</span>
+    <span class="eyebrow">How it all began</span>
     <h2 class="section-title">{{ story.title }}</h2>
     <hr class="divider" />
     @for (p of story.paragraphs; track $index) {

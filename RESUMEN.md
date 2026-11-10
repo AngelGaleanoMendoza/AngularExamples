@@ -99,3 +99,13 @@ npx ng build --base-href ./         # versión para publicar -> dist/boda-anders
   - Con sesión de Spotify en el navegador se escucha completa.
   - Sin sesión, Spotify solo da 30 segundos de vista previa, que se repiten.
   - Si el navegador bloquea el arranque, se abre el reproductor para tocar ▶ ahí.
+
+## Idioma
+
+- La página está **toda en inglés**: textos, botones, avisos para lectores de pantalla y
+  fechas (formato de EE. UU.: "January 27, 2027").
+- Los comentarios del código siguen en español.
+- Los enlaces internos también pasaron a inglés:
+  `#home`, `#countdown`, `#story`, `#schedule`, `#location`, `#gallery`, `#gifts`, `#rsvp`.
+- El formulario RSVP envía estos campos:
+  `name, contact, attending, guests, dietary, message`.
