@@ -1,0 +1,30 @@
+<section id="home" class="hero">
+  <img
+    class="hero__img"
+    src="images/catedral.jpg"
+    alt="The couple dancing in front of a colonial church"
+    fetchpriority="high"
+  />
+  <div class="hero__shade" aria-hidden="true"></div>
+
+  <div class="hero__content">
+    <p class="hero__kicker">We're getting married!</p>
+    <h1 class="hero__names">
+      <span class="hero__name">{{ w.partnerOne }}</span>
+      <span class="hero__amp" aria-label="and">&amp;</span>
+      <span class="hero__name">{{ w.partnerTwo }}</span>
+    </h1>
+    <ul class="hero__dates">
+      @for (wedding of weddings; track wedding.label) {
+        <li class="hero__event">
+          <span class="hero__label" [attr.aria-label]="wedding.label"><b class="code">{{ wedding.code }}</b> Wedding</span>
+          <span class="hero__date">{{ wedding.dateText }}</span>
+        </li>
+      }
+    </ul>
+  </div>
+
+  <a class="hero__scroll" href="#countdown" aria-label="Scroll down">
+    <span></span>
+  </a>
+</section>

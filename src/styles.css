@@ -1,3 +1,251 @@
-/* You can add global styles to this file, and also import other style files */
+/* ===== Tokens ===== */
+:root {
+  --ivory: #faf7f2;
+  --paper: #ffffff;
+  --sand: #f1ebe1;
+  --ink: #1f1d1a;
+  --muted: #6b655c;
+  --line: #e4dccf;
+  --gold: #b08d57;
+  --gold-soft: #c9a76a;
+  --olive: #5c6b4a;
+  --night: #3f4b35; /* verde oliva profundo: fondos oscuros */
+  --night-2: #36412e;
+  --cream: #ece4d2;
 
-@import "tailwindcss";
+  --font-display: 'Cormorant Garamond', 'Times New Roman', serif;
+  --font-script: 'Pinyon Script', 'Brush Script MT', cursive;
+  /* Títulos "US Wedding" / "NIC Wedding": cursiva con mayúsculas legibles. */
+  --font-label: 'Great Vibes', 'Brush Script MT', cursive;
+  --font-sans: 'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --nav-h: 64px;
+  --container: 1120px;
+  --radius: 2px;
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* ===== Base ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-h);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 1.7;
+  font-variant-numeric: lining-nums;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  font-weight: 400;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* ===== Layout helpers ===== */
+.container {
+  width: min(100% - 32px, var(--container));
+  margin-inline: auto;
+}
+
+.section {
+  padding: clamp(72px, 10vw, 120px) 0;
+}
+
+.section--sand {
+  background: var(--ivory);
+}
+
+.section--night {
+  background: var(--night);
+  color: #f3eee6;
+}
+
+.section-head {
+  text-align: center;
+  margin-bottom: clamp(40px, 6vw, 64px);
+}
+
+.eyebrow {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.section-title {
+  font-family: var(--font-script);
+  font-size: clamp(44px, 7vw, 68px);
+  line-height: 1.1;
+  color: inherit;
+}
+
+.lead {
+  max-width: 620px;
+  margin: 18px auto 0;
+  color: var(--muted);
+}
+
+.section--night .lead {
+  color: #d8d1bf;
+}
+
+.divider {
+  display: block;
+  width: 56px;
+  height: 1px;
+  margin: 28px auto;
+  background: var(--gold-soft);
+  border: 0;
+}
+
+/* ===== Buttons ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 46px;
+  padding: 0 28px;
+  border: 1px solid var(--olive);
+  border-radius: var(--radius);
+  background: var(--olive);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background 0.3s var(--ease),
+    color 0.3s var(--ease),
+    border-color 0.3s var(--ease);
+}
+
+.btn:hover {
+  background: transparent;
+  color: var(--ink);
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--ink);
+}
+
+.btn--outline:hover {
+  background: var(--ink);
+  color: #fff;
+}
+
+.btn--gold {
+  background: transparent;
+  border-color: var(--gold-soft);
+  color: #f3eee6;
+}
+
+.btn--gold:hover {
+  background: var(--gold-soft);
+  color: var(--night);
+}
+
+/* ===== Reveal on scroll ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.9s var(--ease),
+    transform 0.9s var(--ease);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Sigla de "US Wedding" / "NIC Wedding": mayúsculas finas junto a la cursiva. */
+.code {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 0.62em;
+  letter-spacing: 0.2em;
+  margin-right: 0.1em;
+}
+
+/* Bloquea el scroll mientras se ve la portada de entrada. */
+html.is-locked,
+html.is-locked body {
+  overflow: hidden;
+}

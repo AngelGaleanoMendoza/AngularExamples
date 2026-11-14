@@ -1,0 +1,83 @@
+.std {
+  background: var(--night);
+  color: var(--ivory);
+  text-align: center;
+}
+
+.std__band {
+  height: clamp(260px, 42vw, 520px);
+  overflow: hidden;
+}
+
+.std__band img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 16%;
+}
+
+.std__body {
+  padding: clamp(56px, 8vw, 96px) 16px clamp(64px, 9vw, 104px);
+}
+
+.std__names {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--font-script);
+  font-size: clamp(64px, 11vw, 116px);
+  line-height: 1.05;
+}
+
+.std__amp {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-family: var(--font-display);
+  font-size: 26px;
+  color: var(--gold-soft);
+  margin: 4px 0;
+}
+
+.std__amp i {
+  display: block;
+  width: clamp(70px, 14vw, 140px);
+  height: 1px;
+  background: var(--gold-soft);
+}
+
+.std__dates {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 22px 0 32px;
+  padding: 0;
+  list-style: none;
+}
+
+.std__dates li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.std__label {
+  font-family: var(--font-label);
+  font-size: clamp(34px, 5vw, 44px);
+  line-height: 1.2;
+  color: var(--gold-soft);
+}
+
+.std__date {
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+
+.std__text {
+  max-width: 520px;
+  margin: 0 auto;
+  font-weight: 400;
+  color: var(--cream);
+}

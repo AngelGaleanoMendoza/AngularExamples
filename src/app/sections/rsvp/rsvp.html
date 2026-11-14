@@ -1,0 +1,93 @@
+<section id="rsvp" class="section section--sand">
+  <div class="container">
+    <header class="section-head" appReveal>
+      <span class="eyebrow">Kindly reply by {{ deadline }}</span>
+      <h2 class="section-title">Will you join us?</h2>
+    </header>
+
+    <div class="card" appReveal>
+      @if (status() === 'sent') {
+        <div class="done" role="status">
+          <h3>Thank you!</h3>
+          <p>
+            {{ attending ? 'We are so happy you will be there.' : 'We will miss you. Thank you for letting us know!' }}
+          </p>
+          <button type="button" class="btn btn--outline" (click)="reset()">Send another response</button>
+        </div>
+      } @else if (status() === 'manual') {
+        <div class="done" role="status">
+          <h3>Almost done!</h3>
+          <p>Please email your response to <strong class="email">{{ email }}</strong>.</p>
+          <pre class="summary">{{ summary() }}</pre>
+          <div class="actions">
+            <button type="button" class="btn" (click)="copy()">
+              {{ copied() ? 'Copied' : 'Copy response' }}
+            </button>
+            <a class="btn btn--outline" [href]="mailto()">Open my email</a>
+          </div>
+          <button type="button" class="link" (click)="reset()">Back to the form</button>
+        </div>
+      } @else {
+        <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+          <div class="field">
+            <label for="name">Full name</label>
+            <input id="name" formControlName="name" autocomplete="name" [attr.aria-invalid]="invalid('name')" />
+            @if (invalid('name')) {
+              <span class="error">Please enter your name.</span>
+            }
+          </div>
+
+          <div class="field">
+            <label for="contact">Email or phone</label>
+            <input id="contact" formControlName="contact" autocomplete="email" [attr.aria-invalid]="invalid('contact')" />
+            @if (invalid('contact')) {
+              <span class="error">Please leave a way to reach you.</span>
+            }
+          </div>
+
+          <fieldset class="field choice">
+            <legend>Will you attend?</legend>
+            <label class="pill">
+              <input type="radio" formControlName="attending" value="yes" />
+              <span>Joyfully accepts</span>
+            </label>
+            <label class="pill">
+              <input type="radio" formControlName="attending" value="no" />
+              <span>Regretfully declines</span>
+            </label>
+          </fieldset>
+
+          @if (attending) {
+            <div class="row">
+              <div class="field">
+                <label for="guests">Number of guests</label>
+                <select id="guests" formControlName="guests">
+                  @for (n of guestOptions; track n) {
+                    <option [ngValue]="n">{{ n }}</option>
+                  }
+                </select>
+              </div>
+              <div class="field">
+                <label for="diet">Allergies or dietary needs</label>
+                <input id="diet" formControlName="diet" placeholder="Vegetarian, gluten-free…" />
+              </div>
+            </div>
+          }
+
+          <div class="field">
+            <label for="message">A message for the couple (optional)</label>
+            <textarea id="message" formControlName="message" rows="3"></textarea>
+          </div>
+
+          @if (status() === 'error') {
+            <p class="error" role="alert">We couldn't send your response. Please try again.</p>
+          }
+
+          <button type="submit" class="btn submit" [disabled]="status() === 'sending'">
+            {{ status() === 'sending' ? 'Sending…' : 'Send RSVP' }}
+          </button>
+        </form>
+      }
+    </div>
+  </div>
+</section>

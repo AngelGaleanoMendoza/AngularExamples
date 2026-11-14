@@ -1,0 +1,26 @@
+<header class="nav" [class.nav--solid]="scrolled() || open()">
+  <div class="nav__inner">
+    <a class="monogram" href="#home" (click)="close()" aria-label="Go to top">
+      {{ w.initials.one }}<span>&amp;</span>{{ w.initials.two }}
+    </a>
+
+    <button
+      class="burger"
+      type="button"
+      [attr.aria-expanded]="open()"
+      aria-controls="menu"
+      (click)="toggle()"
+    >
+      <span class="sr-only">Menu</span>
+      <span class="burger__bar"></span>
+      <span class="burger__bar"></span>
+    </button>
+
+    <nav id="menu" class="menu" [class.menu--open]="open()" aria-label="Sections">
+      @for (link of links; track link.href) {
+        <a class="menu__link" [href]="link.href" (click)="close()">{{ link.label }}</a>
+      }
+      <a class="menu__rsvp" href="#rsvp" (click)="close()">RSVP</a>
+    </nav>
+  </div>
+</header>

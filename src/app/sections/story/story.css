@@ -1,0 +1,105 @@
+.story {
+  background: var(--ivory);
+  padding-bottom: clamp(72px, 10vw, 120px);
+}
+
+/* ===== Carrusel: tira de fotos que se desliza sin parar ===== */
+.reel {
+  position: relative;
+  height: clamp(340px, 62vh, 600px);
+  overflow: hidden;
+  background: var(--night);
+}
+
+.reel__track {
+  display: flex;
+  width: max-content;
+  height: 100%;
+  animation: reel linear infinite;
+  will-change: transform;
+}
+
+.reel__photo {
+  flex: none;
+  /* Margen (no gap) para que la mitad de la tira mida justo una vuelta. */
+  margin-right: 6px;
+  height: 100%;
+  width: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  max-width: none;
+}
+
+.reel__photo--bw {
+  filter: grayscale(1) contrast(1.05);
+}
+
+.reel__shade {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(20, 22, 16, 0.35) 0%, rgba(20, 22, 16, 0.05) 60%);
+  pointer-events: none;
+}
+
+/* Monograma fijo encima de las fotos: letra arriba, "&" al centro, letra abajo */
+.mono {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  line-height: 1;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.mono__one,
+.mono__two {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(84px, 13vw, 160px);
+}
+
+.mono__one {
+  transform: translateY(-0.32em);
+}
+
+.mono__two {
+  transform: translateY(0.32em);
+}
+
+.mono__amp {
+  margin: 0 -0.08em;
+  font-family: var(--font-script);
+  font-size: clamp(64px, 10vw, 124px);
+  transform: translateY(0.05em);
+}
+
+@keyframes reel {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reel {
+    overflow-x: auto;
+  }
+
+  .reel__track {
+    animation: none;
+  }
+}
+
+/* ===== Texto ===== */
+.story__text {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: clamp(56px, 8vw, 88px) 16px 0;
+  text-align: center;
+  color: #4a453d;
+}

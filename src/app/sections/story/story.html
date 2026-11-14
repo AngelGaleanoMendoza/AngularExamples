@@ -1,0 +1,31 @@
+<section id="story" class="story">
+  <div class="reel" role="img" [attr.aria-label]="'Photos for ' + story.title">
+    <div class="reel__track" [style.animation-duration]="duration">
+      @for (slide of track; track $index) {
+        <img
+          class="reel__photo"
+          [class.reel__photo--bw]="slide.bw"
+          [src]="slide.src"
+          alt=""
+          loading="lazy"
+          decoding="async"
+        />
+      }
+    </div>
+    <div class="reel__shade" aria-hidden="true"></div>
+    <p class="mono" aria-hidden="true">
+      <span class="mono__one">{{ initials.one }}</span>
+      <span class="mono__amp">&amp;</span>
+      <span class="mono__two">{{ initials.two }}</span>
+    </p>
+  </div>
+
+  <div class="story__text" appReveal>
+    <span class="eyebrow">How it all began</span>
+    <h2 class="section-title">{{ story.title }}</h2>
+    <hr class="divider" />
+    @for (p of story.paragraphs; track $index) {
+      <p>{{ p }}</p>
+    }
+  </div>
+</section>

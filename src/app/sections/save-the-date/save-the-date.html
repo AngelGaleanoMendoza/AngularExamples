@@ -1,0 +1,29 @@
+<section class="std">
+  <div class="std__band" aria-hidden="true">
+    <img src="images/atardecer.jpg" alt="" loading="lazy" />
+  </div>
+
+  <div class="std__body" appReveal>
+    <span class="eyebrow">Save the date</span>
+    <h2 class="std__names">
+      <span>{{ w.partnerOne }}</span>
+      <span class="std__amp"><i></i>&amp;<i></i></span>
+      <span>{{ w.partnerTwo }}</span>
+    </h2>
+    <ul class="std__dates">
+      @for (wedding of weddings; track wedding.label) {
+        <li>
+          <span class="std__label" [attr.aria-label]="wedding.label"><b class="code">{{ wedding.code }}</b> Wedding</span>
+          <span class="std__date">{{ wedding.dateText }} · {{ wedding.place }}</span>
+        </li>
+      }
+    </ul>
+    <a class="btn btn--gold" href="#rsvp">RSVP by {{ deadline }}</a>
+    <hr class="divider" />
+    <p class="std__text">
+      We want this day to be as special for you as it is for us. Here you will find
+      everything you need to celebrate with us.
+    </p>
+    <hr class="divider" />
+  </div>
+</section>

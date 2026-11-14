@@ -1,0 +1,28 @@
+<section id="countdown" class="countdown">
+  <span class="eyebrow">Countdown</span>
+
+  <div class="events">
+    @for (event of events(); track event.label) {
+      <article class="event">
+        <h2 class="event__label" [attr.aria-label]="event.label"><b class="code">{{ event.code }}</b> Wedding</h2>
+        <p class="event__date">{{ event.dateText }} · {{ event.place }}</p>
+        @if (!event.married) {
+          <div class="units" role="timer" aria-live="off">
+            @for (unit of event.units; track unit.label) {
+              <div class="unit">
+                <span class="unit__value">{{ pad(unit.value) }}</span>
+                <span class="unit__label">{{ unit.label }}</span>
+              </div>
+            }
+          </div>
+        } @else {
+          <p class="married">{{ event.daysMarried }} days</p>
+          <p class="event__since">since we said "I do"</p>
+        }
+      </article>
+    }
+  </div>
+
+  <p class="note">until the days we say "I do"</p>
+  <a class="btn" href="#rsvp">RSVP</a>
+</section>
